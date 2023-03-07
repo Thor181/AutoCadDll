@@ -1,0 +1,47 @@
+﻿<Window x:Class="ACDll.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ACDll"
+        mc:Ignorable="d"
+        Title="SPLIT_REPAINT" Height="500" Width="300">
+    <Grid>
+        <ToggleButton x:Name="CheckAllButton" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Margin="5 2.5 5 5" Content="✓" 
+                Height="20" Width="20" Click="CheckAllButton_Click"/>
+        <Button x:Name="StartButton" Content="Начать" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Padding="10 0" Margin="5 2.5 5 5"
+                    Click="StartButton_Click"/>
+        <Button x:Name="StopButton" Content="Отмена" 
+                HorizontalAlignment="Right" VerticalAlignment="Top" Padding="10 0" Margin="5 2.5 5 5"
+                Click="StopButton_Click" Visibility="Collapsed"/>
+        <Grid VerticalAlignment="Bottom"  Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="DetailButton" Content="Подробно" 
+                    Grid.Column="0" Grid.Row="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Click="DetailButton_Click"/>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <ProgressBar x:Name="ProgressBarLayers" VerticalAlignment="Stretch" Height="20"  Minimum="0"/>
+                <TextBlock Text="Слои" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="1"  Grid.Row="2">
+                <ProgressBar x:Name="ProgressBarEntities" VerticalAlignment="Stretch" Height="20"  Minimum="0" />
+                <TextBlock Text="Объекты" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+            </Grid>
+        </Grid>
+        <ScrollViewer d:Background="gray" Margin="5 25 5 50">
+            <StackPanel x:Name="MainStackPanel" d:Background="Green" />
+        </ScrollViewer>
+    </Grid>
+</Window>
